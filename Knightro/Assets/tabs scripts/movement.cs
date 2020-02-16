@@ -13,10 +13,12 @@ public class movement : MonoBehaviour
     Vector3 up;
     Vector3 jump;
     float charge;
+    float newrot;
    [SerializeField] PhysicMaterial phy;
     bool grounded;
     bool charging;
     bool jittercheck;
+    GameObject test;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,8 @@ public class movement : MonoBehaviour
         box = GetComponent<BoxCollider>();
         grounded = true;
         charging = true;
+        test = null;
+        newrot = 0;
     }
 
     public void OnCollisionStay(Collision collision)
@@ -36,23 +40,27 @@ public class movement : MonoBehaviour
         grounded = false;
     }
 
-    public void OnCollisionEnter(Collision collision)
+   public void OnCollisionEnter(Collision collision)
     {
+        
         if (Physics.Raycast(transform.position, Vector3.down, out downward, 0.7f))
         {
-            if (collision.transform.CompareTag("ground") && jittercheck == true)
+            
+            if (collision.transform.CompareTag("ground") && jittercheck == true && collision.gameObject!=test)
             {
                 up = downward.normal;
                 transform.up = up;
                 rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+                test = collision.gameObject;
                 jittercheck = false;
             }
 
-            if (collision.transform.tag != "groud")
+            if (collision.transform.tag != "ground" && collision.gameObject != test)
             {
                 up = downward.normal;
                 transform.up = up;
                 rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+                test = collision.gameObject;
                 jittercheck = true;
             }
 
@@ -85,8 +93,9 @@ public class movement : MonoBehaviour
         {
             box.material = null;
         }
-
-        rotate = new Vector3(transform.rotation.x,transform.rotation.y+Input.GetAxisRaw("Horizontal")*500,transform.rotation.z);
+    
+        newrot += Mathf.RoundToInt(Input.GetAxisRaw("Horizontal"));
+        rotate = new Vector3(transform.rotation.x,newrot,transform.rotation.z);
         
     }
 
@@ -116,10 +125,10 @@ public class movement : MonoBehaviour
             rb.velocity = veltrac*1.5f;
             charging = false;
             charge = 0;
-            
         }
         //rb.MoveRotation(Quaternion.LookRotation( Vector3.Cross(transform.forward,upright)*Time.fixedDeltaTime));
-        transform.rotation = Quaternion.Slerp( transform.rotation,Quaternion.Euler( rotate),3*Time.fixedDeltaTime);
-        Debug.Log(Input.GetAxis("Horizontal"));
+        //transform.rotation = Quaternion.Lerp( transform.rotation,Quaternion.Euler(rotate),3*Time.fixedDeltaTime);
+        rb.MoveRotation(Quaternion.Slerp(transform.rotation, Quaternion.Euler(rotate), 100 * Time.deltaTime));
+        
     }
 }
