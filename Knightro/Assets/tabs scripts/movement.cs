@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class movement : MonoBehaviour
 {
@@ -32,11 +30,29 @@ public class movement : MonoBehaviour
 
     public void OnCollisionStay(Collision collision)
     {
+        if (Physics.Raycast(transform.position, Vector3.down, out downward, 0.7f))
+        {
+            if (collision.transform.tag != "ground")
+            {
+                jittercheck = false;
+                rb.constraints = RigidbodyConstraints.None;
+                up = downward.normal;
+                transform.up = up;
+                rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+                test = collision.gameObject;
+                newrot = 0;
+                
+            }
+        }
         grounded = true;
     }
 
     public void OnCollisionExit(Collision collision)
     {
+        if (collision.transform.tag != "ground")
+        {
+            jittercheck = true;
+        }
         grounded = false;
     }
 
@@ -48,21 +64,15 @@ public class movement : MonoBehaviour
             
             if (collision.transform.CompareTag("ground") && jittercheck == true && collision.gameObject!=test)
             {
+                rb.constraints = RigidbodyConstraints.None;
                 up = downward.normal;
                 transform.up = up;
                 rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
                 test = collision.gameObject;
-                jittercheck = false;
             }
 
-            if (collision.transform.tag != "ground" && collision.gameObject != test)
-            {
-                up = downward.normal;
-                transform.up = up;
-                rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-                test = collision.gameObject;
-                jittercheck = true;
-            }
+
+          
 
         }
     }
@@ -85,17 +95,16 @@ public class movement : MonoBehaviour
         }
         
         //upright = Vector3.Cross(transform.position + Vector3.forward, downward.point);
-        if (Input.GetAxisRaw("Vertical") == 0)
+       /* if (Input.GetAxisRaw("Vertical") == 0)
         {
             box.material = phy;
         }
         else
         {
             box.material = null;
-        }
-    
-        newrot += Mathf.RoundToInt(Input.GetAxisRaw("Horizontal"));
-        rotate = new Vector3(transform.rotation.x,newrot,transform.rotation.z);
+        }*/
+        newrot += Input.GetAxisRaw("Horizontal")*Time.deltaTime;
+        rotate = new Vector3(transform.rotation.x, newrot,transform.rotation.z);
         
     }
 
@@ -111,8 +120,8 @@ public class movement : MonoBehaviour
         Vector3 veltrac = rb.velocity;
         if (grounded == true)
         {
-            rb.velocity = rb.velocity + move*30*Time.fixedDeltaTime;
-            veltrac = rb.velocity;
+            rb.velocity = rb.velocity + move*20*Time.fixedDeltaTime;
+           
         }
 
         if (grounded == false)
@@ -127,8 +136,10 @@ public class movement : MonoBehaviour
             charge = 0;
         }
         //rb.MoveRotation(Quaternion.LookRotation( Vector3.Cross(transform.forward,upright)*Time.fixedDeltaTime));
-        //transform.rotation = Quaternion.Lerp( transform.rotation,Quaternion.Euler(rotate),3*Time.fixedDeltaTime);
-        rb.MoveRotation(Quaternion.Slerp(transform.rotation, Quaternion.Euler(rotate), 100 * Time.deltaTime));
+        if (jittercheck == true)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(rotate*80), 3 * Time.fixedDeltaTime);
+        }
         
     }
 }
