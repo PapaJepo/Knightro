@@ -97,7 +97,18 @@ public class movement : MonoBehaviour
     void Update()
     {
         
-        move =  transform.forward*Input.GetAxis(buttons[0]);
+        move =  transform.forward*Input.GetAxisRaw(buttons[0]);
+
+        if (Input.GetAxisRaw(buttons[0]) < 0)
+        {
+            phy.dynamicFriction = 5;
+            phy.staticFriction = 3;
+        }
+        else
+        {
+            phy.dynamicFriction = 2;
+            phy.staticFriction = 1;
+        }
 
         if (Input.GetButton(buttons[2])&& charging==true)
         {
