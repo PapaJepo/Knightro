@@ -4200,6 +4200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcdb6e13c6dab814a8aa678dc7781d60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angulardrag: 5
   rotspeed: 50
   phy: {fileID: 13400000, guid: db9cdd30b3c1c9547822bc4ac70c989b, type: 2}
 --- !u!65 &296758822
@@ -13289,8 +13290,7 @@ MonoBehaviour:
   player: {fileID: 296758820}
   y: 3
   x: 7
-  chargeeffect: 0
-  charge: 0
+  chargemax: 35
 --- !u!1001 &925345679
 PrefabInstance:
   m_ObjectHideFlags: 0

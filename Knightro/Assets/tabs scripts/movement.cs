@@ -12,6 +12,7 @@ public class movement : MonoBehaviour
     Vector3 jump;
     float charge;
     float newrot;
+   [SerializeField] int angulardrag;
    [SerializeField] int rotspeed;
    [SerializeField] PhysicMaterial phy;
     bool grounded;
@@ -120,6 +121,7 @@ public class movement : MonoBehaviour
         newrot += Input.GetAxisRaw("Horizontal")*Time.deltaTime;
         rotate = new Vector3(transform.rotation.x, newrot,transform.rotation.z);
         Debug.DrawRay(transform.position + Vector3.forward+Vector3.down, Vector3.down, Color.red);
+        
     }
 
     public void OnDrawGizmos()
@@ -153,6 +155,11 @@ public class movement : MonoBehaviour
         if (jittercheck == true)
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(rotate*rotspeed), 3 * Time.fixedDeltaTime);
+            
+        }
+        if (Input.GetAxisRaw("Horizontal") != 0)
+        {
+            rb.velocity -= transform.forward * Input.GetAxisRaw("Horizontal") * angulardrag * Time.fixedDeltaTime;
         }
         Debug.Log(rb.velocity.magnitude);
     }
