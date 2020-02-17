@@ -578,6 +578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 404d189b07c50824d874e13cf23eb13a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotspeed: 50
   phy: {fileID: 13400000, guid: db9cdd30b3c1c9547822bc4ac70c989b, type: 2}
 --- !u!65 &296758822
 BoxCollider:
@@ -1159,7 +1160,27 @@ PrefabInstance:
     - target: {fileID: -8134438308503345781, guid: ca73d55f53b8ec64c823b1734e580d21,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.99
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8134438308503345781, guid: ca73d55f53b8ec64c823b1734e580d21,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 31.44
+      objectReference: {fileID: 0}
+    - target: {fileID: -8134438308503345781, guid: ca73d55f53b8ec64c823b1734e580d21,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.56
+      objectReference: {fileID: 0}
+    - target: {fileID: -7493128907013995629, guid: ca73d55f53b8ec64c823b1734e580d21,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: -7493128907013995629, guid: ca73d55f53b8ec64c823b1734e580d21,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -12.9
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ca73d55f53b8ec64c823b1734e580d21,
         type: 3}
@@ -1169,12 +1190,12 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: ca73d55f53b8ec64c823b1734e580d21,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.14
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ca73d55f53b8ec64c823b1734e580d21,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.1613
+      value: -44.5
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ca73d55f53b8ec64c823b1734e580d21,
         type: 3}
@@ -1225,6 +1246,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ramp
+      objectReference: {fileID: 0}
+    - target: {fileID: 721056895991426811, guid: ca73d55f53b8ec64c823b1734e580d21,
+        type: 3}
+      propertyPath: m_TagString
+      value: Respawn
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca73d55f53b8ec64c823b1734e580d21, type: 3}

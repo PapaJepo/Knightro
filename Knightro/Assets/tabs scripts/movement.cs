@@ -12,6 +12,7 @@ public class movement : MonoBehaviour
     Vector3 jump;
     float charge;
     float newrot;
+   [SerializeField] int rotspeed;
    [SerializeField] PhysicMaterial phy;
     bool grounded;
     bool charging;
@@ -72,9 +73,6 @@ public class movement : MonoBehaviour
                 test = collision.gameObject;
             }
 
-
-          
-
         }
     }
 
@@ -96,14 +94,14 @@ public class movement : MonoBehaviour
         }
         
         //upright = Vector3.Cross(transform.position + Vector3.forward, downward.point);
-       /* if (Input.GetAxisRaw("Vertical") == 0)
+        if (Input.GetAxisRaw("Vertical") == 0)
         {
             box.material = phy;
         }
         else
         {
             box.material = null;
-        }*/
+        }
         newrot += Input.GetAxisRaw("Horizontal")*Time.deltaTime;
         rotate = new Vector3(transform.rotation.x, newrot,transform.rotation.z);
         
@@ -139,7 +137,7 @@ public class movement : MonoBehaviour
         //rb.MoveRotation(Quaternion.LookRotation( Vector3.Cross(transform.forward,upright)*Time.fixedDeltaTime));
         if (jittercheck == true)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(rotate*80), 3 * Time.fixedDeltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(rotate*rotspeed), 3 * Time.fixedDeltaTime);
         }
         
     }
