@@ -10,6 +10,7 @@ public class rotation : MonoBehaviour
     [SerializeField] int x;
     Camera cam;
     [SerializeField] int chargemax;
+    [SerializeField] string[] buttons = new string[1];
     bool chargeeffect;
     float charge;
     public void Start()
@@ -20,10 +21,10 @@ public class rotation : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKey(KeyCode.Space) && chargeeffect==false)
+        if (Input.GetButton(buttons[0]) && chargeeffect==false)
         {
             charge += chargemax * Time.deltaTime;
-            
+            Debug.Log("yes");
         }
 
     }
@@ -51,7 +52,7 @@ public class rotation : MonoBehaviour
             cam.fieldOfView = Mathf.LerpUnclamped(cam.fieldOfView, 60, 6 * Time.fixedDeltaTime);
         }
 
-        if(Input.GetKeyUp(KeyCode.Space)|| charge >=chargemax*2)
+        if(Input.GetButtonUp(buttons[0]) || charge >=chargemax*2)
         {
             chargeeffect = true;
         }

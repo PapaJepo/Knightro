@@ -4200,9 +4200,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcdb6e13c6dab814a8aa678dc7781d60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angulardrag: 5
+  angulardrag: 0
   rotspeed: 50
   phy: {fileID: 13400000, guid: db9cdd30b3c1c9547822bc4ac70c989b, type: 2}
+  buttons:
+  - Fire1
+  - Horizontal
+  - Jump
 --- !u!65 &296758822
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13239,7 +13243,7 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
+    width: 0.5
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -13291,6 +13295,8 @@ MonoBehaviour:
   y: 3
   x: 7
   chargemax: 35
+  buttons:
+  - Jump
 --- !u!1001 &925345679
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ public class movement : MonoBehaviour
    [SerializeField] int angulardrag;
    [SerializeField] int rotspeed;
    [SerializeField] PhysicMaterial phy;
+    [SerializeField] string[] buttons = new string[1];
     bool grounded;
     bool charging;
     bool jittercheck;
@@ -96,29 +97,22 @@ public class movement : MonoBehaviour
     void Update()
     {
         
-        move =  transform.forward*Input.GetAxis("Vertical");
+        move =  transform.forward*Input.GetAxis(buttons[0]);
 
-        if (Input.GetKey(KeyCode.Space)&& charging==true)
+        if (Input.GetButton(buttons[2])&& charging==true)
         {
             charge += 100 * Time.deltaTime;
             jump = transform.forward * charge;
         }
 
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetButtonUp(buttons[2]))
         {
             charging = true;
         }
         
         //upright = Vector3.Cross(transform.position + Vector3.forward, downward.point);
-        if (Input.GetAxisRaw("Vertical") == 0)
-        {
-            box.material = phy;
-        }
-        else
-        {
-            box.material = null;
-        }
-        newrot += Input.GetAxisRaw("Horizontal")*Time.deltaTime;
+     
+        newrot += Input.GetAxisRaw(buttons[1])*Time.deltaTime;
         rotate = new Vector3(transform.rotation.x, newrot,transform.rotation.z);
         Debug.DrawRay(transform.position + Vector3.forward+Vector3.down, Vector3.down, Color.red);
         
@@ -144,7 +138,7 @@ public class movement : MonoBehaviour
         {
             rb.AddForce(move * 500*Time.fixedDeltaTime);
         }
-        if (Input.GetKeyUp(KeyCode.Space) && charging == true || charge >=200 && charging == true)
+        if (Input.GetButtonUp(buttons[2]) && charging == true || charge >=200 && charging == true)
         {
             rb.AddForce(jump*5);
             rb.velocity = veltrac*1.5f;
@@ -157,10 +151,10 @@ public class movement : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(rotate*rotspeed), 3 * Time.fixedDeltaTime);
             
         }
-        if (Input.GetAxisRaw("Horizontal") != 0)
+        if (Input.GetAxisRaw(buttons[1]) != 0)
         {
-            rb.velocity -= transform.forward * Input.GetAxisRaw("Horizontal") * angulardrag * Time.fixedDeltaTime;
+            rb.velocity -= transform.forward * Input.GetAxisRaw(buttons[1]) * angulardrag * Time.fixedDeltaTime;
         }
-        Debug.Log(rb.velocity.magnitude);
+
     }
 }
