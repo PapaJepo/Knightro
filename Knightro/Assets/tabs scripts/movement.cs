@@ -26,6 +26,7 @@ public class movement : MonoBehaviour
         charging = true;
         test = null;
         newrot = 0;
+        jittercheck = true;
     }
 
     public void OnCollisionStay(Collision collision)
