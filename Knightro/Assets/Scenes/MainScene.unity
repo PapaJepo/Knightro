@@ -4180,7 +4180,6 @@ GameObject:
   - component: {fileID: 296758823}
   - component: {fileID: 296758822}
   - component: {fileID: 296758826}
-  - component: {fileID: 296758821}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -4188,20 +4187,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &296758821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 296758820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 404d189b07c50824d874e13cf23eb13a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotspeed: 86
-  phy: {fileID: 13400000, guid: db9cdd30b3c1c9547822bc4ac70c989b, type: 2}
 --- !u!65 &296758822
 BoxCollider:
   m_ObjectHideFlags: 0
