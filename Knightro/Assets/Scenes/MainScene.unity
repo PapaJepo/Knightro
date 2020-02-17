@@ -4180,6 +4180,7 @@ GameObject:
   - component: {fileID: 296758823}
   - component: {fileID: 296758822}
   - component: {fileID: 296758826}
+  - component: {fileID: 296758821}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -4187,6 +4188,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &296758821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296758820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcdb6e13c6dab814a8aa678dc7781d60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotspeed: 50
+  phy: {fileID: 13400000, guid: db9cdd30b3c1c9547822bc4ac70c989b, type: 2}
 --- !u!65 &296758822
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13268,12 +13283,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 923630510}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d55d917901426b84f91975a3b1c45818, type: 3}
+  m_Script: {fileID: 11500000, guid: 75a2ce48aa51ec74f95831130d866ff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 296758820}
-  offset: {x: 0, y: 4, z: -5}
-  distance: 0.51
+  y: 3
+  x: 7
+  chargeeffect: 0
+  charge: 0
 --- !u!1001 &925345679
 PrefabInstance:
   m_ObjectHideFlags: 0

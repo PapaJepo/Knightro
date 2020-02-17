@@ -32,7 +32,7 @@ public class movement : MonoBehaviour
 
     public void OnCollisionStay(Collision collision)
     {
-        if (Physics.Raycast(transform.position, Vector3.down, out downward, 0.7f))
+        if (Physics.Raycast(transform.position+ Vector3.down, Vector3.down, out downward, 0.7f))
         {
             if (collision.transform.tag != "ground")
             {
@@ -46,7 +46,21 @@ public class movement : MonoBehaviour
                 
             }
         }
-        grounded = true;
+        if (Physics.Raycast(transform.position + Vector3.forward + Vector3.down, Vector3.down, out downward, 0.7f))
+        {
+            if (collision.transform.tag != "ground")
+            {
+                jittercheck = false;
+                rb.constraints = RigidbodyConstraints.None;
+                up = downward.normal;
+                transform.up = up;
+                rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+                test = collision.gameObject;
+                newrot = 0;
+
+            }
+        }
+            grounded = true;
     }
 
     public void OnCollisionExit(Collision collision)
@@ -61,7 +75,7 @@ public class movement : MonoBehaviour
    public void OnCollisionEnter(Collision collision)
     {
         
-        if (Physics.Raycast(transform.position, Vector3.down, out downward, 0.7f))
+        if (Physics.Raycast(transform.position+Vector3.down, Vector3.down, out downward, 0.7f))
         {
             
             if (collision.transform.CompareTag("ground") && jittercheck == true && collision.gameObject!=test)
@@ -74,6 +88,7 @@ public class movement : MonoBehaviour
             }
 
         }
+     
     }
 
     // Update is called once per frame
@@ -104,7 +119,7 @@ public class movement : MonoBehaviour
         }
         newrot += Input.GetAxisRaw("Horizontal")*Time.deltaTime;
         rotate = new Vector3(transform.rotation.x, newrot,transform.rotation.z);
-        
+        Debug.DrawRay(transform.position + Vector3.forward+Vector3.down, Vector3.down, Color.red);
     }
 
     public void OnDrawGizmos()
@@ -117,7 +132,7 @@ public class movement : MonoBehaviour
     public void FixedUpdate()
     {
         Vector3 veltrac = rb.velocity;
-        if (grounded == true)
+        if (grounded == true && rb.velocity.magnitude<50)
         {
             rb.velocity = rb.velocity + move*20*Time.fixedDeltaTime;
            
@@ -139,6 +154,6 @@ public class movement : MonoBehaviour
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(rotate*rotspeed), 3 * Time.fixedDeltaTime);
         }
-        
+        Debug.Log(rb.velocity.magnitude);
     }
 }
