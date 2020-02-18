@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Arrow : MonoBehaviour
 {
+    public TMP_Text LapText;
+
     private int CurrentWaypoint;
     //public GameObject CurrentObject;
     public List<Transform> Waypoints;
@@ -18,11 +21,14 @@ public class Arrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UI();
         Debug.Log(Vector3.Distance(Waypoints[CurrentWaypoint].position, this.transform.position));
         UpdateWaypoints();
         //Vector3 m = CurrentObject.transform.position;
         // transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.RotateTowards(m), 1f);
         transform.LookAt(Waypoints[CurrentWaypoint]);
+
+
     }
 
     void UpdateWaypoints()
@@ -30,10 +36,15 @@ public class Arrow : MonoBehaviour
         if(Vector3.Distance(Waypoints[CurrentWaypoint].position,this.transform.position) < 30)
         {
             CurrentWaypoint = (CurrentWaypoint + 1)%Waypoints.Count;
-            if (CurrentWaypoint + 1 == Waypoints.Count - 1)
+            if (CurrentWaypoint + 1 == Waypoints.Count)
             {
                 LapCounter++;
             }
         }
+    }
+
+    void UI()
+    {
+        LapText.text = "" + LapCounter + "/3";
     }
 }
