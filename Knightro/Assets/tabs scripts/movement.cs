@@ -4,7 +4,7 @@ public class movement : MonoBehaviour
 {
     Vector3 move;
     Vector3 rotate;
-    Rigidbody rb;
+   public Rigidbody rb;
     RaycastHit downward;
     BoxCollider box;
     Vector3 upright;
