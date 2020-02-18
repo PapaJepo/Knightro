@@ -18,7 +18,7 @@ public class Arrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(CurrentWaypoint);
+        Debug.Log(Vector3.Distance(Waypoints[CurrentWaypoint].position, this.transform.position));
         UpdateWaypoints();
         //Vector3 m = CurrentObject.transform.position;
         // transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.RotateTowards(m), 1f);
@@ -27,7 +27,7 @@ public class Arrow : MonoBehaviour
 
     void UpdateWaypoints()
     {
-        if(Vector3.Distance(Waypoints[CurrentWaypoint].position,this.transform.position) < 10)
+        if(Vector3.Distance(Waypoints[CurrentWaypoint].position,this.transform.position) < 30)
         {
             CurrentWaypoint = (CurrentWaypoint + 1)%Waypoints.Count;
             if (CurrentWaypoint + 1 == Waypoints.Count - 1)
