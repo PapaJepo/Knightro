@@ -7,6 +7,8 @@ public class Arrow : MonoBehaviour
     private int CurrentWaypoint;
     //public GameObject CurrentObject;
     public List<Transform> Waypoints;
+
+    public int LapCounter;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +18,7 @@ public class Arrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(CurrentWaypoint);
         UpdateWaypoints();
         //Vector3 m = CurrentObject.transform.position;
         // transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.RotateTowards(m), 1f);
@@ -27,6 +30,10 @@ public class Arrow : MonoBehaviour
         if(Vector3.Distance(Waypoints[CurrentWaypoint].position,this.transform.position) < 10)
         {
             CurrentWaypoint = (CurrentWaypoint + 1)%Waypoints.Count;
+            if (CurrentWaypoint + 1 == Waypoints.Count - 1)
+            {
+                LapCounter++;
+            }
         }
     }
 }
