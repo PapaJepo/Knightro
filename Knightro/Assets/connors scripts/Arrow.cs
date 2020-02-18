@@ -7,13 +7,13 @@ public class Arrow : MonoBehaviour
 {
     public TMP_Text LapText;
 
-    private int CurrentWaypoint;
+    public int CurrentWaypoint;
     //public GameObject CurrentObject;
     public List<Transform> Waypoints;
 
     public int LapCounter;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         CurrentWaypoint = 0;
     }
@@ -22,7 +22,7 @@ public class Arrow : MonoBehaviour
     void Update()
     {
         UI();
-        Debug.Log(Vector3.Distance(Waypoints[CurrentWaypoint].position, this.transform.position));
+        //Debug.Log(Vector3.Distance(Waypoints[CurrentWaypoint].position, this.transform.position));
         UpdateWaypoints();
         //Vector3 m = CurrentObject.transform.position;
         // transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.RotateTowards(m), 1f);
