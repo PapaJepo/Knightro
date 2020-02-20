@@ -147,6 +147,11 @@ public class movement : MonoBehaviour
             charging = true;
         }
 
+        if (Input.GetButtonUp(buttons[2]))
+        {
+            chargeactivate = 0;
+        }
+
         //upright = Vector3.Cross(transform.position + Vector3.forward, downward.point);
 
         newrot += Input.GetAxisRaw(buttons[1]) * Time.deltaTime;
@@ -182,11 +187,13 @@ public class movement : MonoBehaviour
         }
         if (Input.GetButtonUp(buttons[2]) && charging == true || charge >= maxcharge && charging == true)
         {
+            
+            charging = false;
             chargeactivate = 0;
             rb.AddForce(jump * 5);
             rb.velocity = veltrac * 1.5f;
-            charging = false;
             charge = 0;
+            
 
         }
         //rb.MoveRotation(Quaternion.LookRotation( Vector3.Cross(transform.forward,upright)*Time.fixedDeltaTime));
