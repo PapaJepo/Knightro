@@ -19,13 +19,17 @@ public class Place : MonoBehaviour
 
     public GameObject Place21st;
     public GameObject Place22nd;
+
+    public GameObject EndScreen;
+    public TMP_Text EndText;
+
     // Start is called before the first frame update
 
-    /*private void Awake()
+    private void Awake()
     {
-        P1 = Player1.GetComponent<Arrow>();
-        P2 = Player2.GetComponent<Arrow>();
-    }*/
+        EndScreen.SetActive(false);
+        Time.timeScale = 1;
+    }
 
     void Start()
     {
@@ -38,6 +42,18 @@ public class Place : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(P1.LapCounter >= 3 )
+        {
+            EndScreen.SetActive(true);
+            Time.timeScale = 0;
+            EndText.text = "Player 1 won the race, Congratulations Brave Knight!";
+        }
+        else if(P2.LapCounter >= 3)
+        {
+            EndScreen.SetActive(true);
+            Time.timeScale = 0;
+            EndText.text = "Player 2 won the race, Congratulations Brave Knight!";
+        }
     
 
         if(P1.LapCounter == P2.LapCounter)
