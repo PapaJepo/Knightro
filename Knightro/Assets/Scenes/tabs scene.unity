@@ -6641,10 +6641,15 @@ MonoBehaviour:
   angulardrag: 0
   rotspeed: 50
   phy: {fileID: 13400000, guid: db9cdd30b3c1c9547822bc4ac70c989b, type: 2}
+  maxspeed: 0
+  speed: 0
+  stoppingspeed: 0
+  chargedelay: 0
   buttons:
   - Fire1
   - Horizontal
   - Jump
+  chargeactivate: 0
 --- !u!54 &398036511
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -30906,6 +30911,8 @@ MonoBehaviour:
   chargemax: 35
   buttons:
   - Jump
+  chargedelay: 2
+  chargeactivate: 0
 --- !u!20 &2103082316
 Camera:
   m_ObjectHideFlags: 0

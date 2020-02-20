@@ -21,7 +21,9 @@ public class movement : MonoBehaviour
     [SerializeField] int speed;
     [SerializeField] int stoppingspeed;
     [SerializeField] int chargedelay;
+    [SerializeField] int pickupspeed, pickupslow;
     [SerializeField] string[] buttons = new string[1];
+    
     public float chargeactivate;
     bool grounded;
     bool charging;
@@ -100,6 +102,16 @@ public class movement : MonoBehaviour
 
         }
 
+        if (collision.transform.CompareTag("pickupspeed"))
+        {
+            charge = pickupspeed;
+            charging = true;
+        }
+
+        if (collision.transform.CompareTag("pickupslow"))
+        {
+            rb.velocity -= transform.forward*pickupslow;
+        }
     }
 
     // Update is called once per frame

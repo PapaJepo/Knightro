@@ -7,6 +7,8 @@ TagManager:
   - ground
   - player2
   - player1
+  - pickupspeed
+  - pickupslow
   layers:
   - Default
   - TransparentFX

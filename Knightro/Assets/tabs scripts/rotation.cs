@@ -13,6 +13,7 @@ public class rotation : MonoBehaviour
     [SerializeField] string[] buttons = new string[1];
     [SerializeField] int chargedelay;
     [SerializeField] float chargeactivate;
+    
     movement mov;
     bool chargeeffect;
     float charge;
@@ -21,6 +22,16 @@ public class rotation : MonoBehaviour
         mov = player.GetComponent<movement>();
         cam = GetComponent<Camera>();
     }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("pickupspeed"))
+        {
+            charge = 110;
+            chargeeffect = true;
+        }
+    }
+
 
     public void Update()
     {
