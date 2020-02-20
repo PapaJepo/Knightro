@@ -9,13 +9,8 @@ public class attackscript : MonoBehaviour
     Vector3 offset;
     [SerializeField] movement opplayer;
     [SerializeField] bool player1, player2;
-    BoxCollider box;
-    [SerializeField] int boxdecider;
-
-    public void Start()
-    {
-        box = GetComponent<BoxCollider>();
-    }
+    [SerializeField] Animator anim;
+   
 
     // Start is called before the first frame update
     public void OnTriggerEnter(Collider other)
@@ -39,15 +34,7 @@ public class attackscript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxisRaw(axis)== boxdecider)
-        {
-            box.enabled = true;
-        }
-        else
-        {
-            box.enabled = false;
-        }
-        Debug.Log(Input.GetAxisRaw(axis));
+      anim.SetFloat("attack", Input.GetAxisRaw(axis));
     }
 
    
