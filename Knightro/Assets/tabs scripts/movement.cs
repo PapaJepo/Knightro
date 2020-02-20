@@ -15,7 +15,12 @@ public class movement : MonoBehaviour
    [SerializeField] int angulardrag;
    [SerializeField] int rotspeed;
    [SerializeField] PhysicMaterial phy;
-    [SerializeField] string[] buttons = new string[1];
+   [SerializeField] int maxspeed;
+   [SerializeField] int speed;
+   [SerializeField] int stoppingspeed;
+   [SerializeField] int chargedelay;
+   [SerializeField] string[] buttons = new string[1];
+   public float chargeactivate;
     bool grounded;
     bool charging;
     bool jittercheck;
@@ -30,10 +35,12 @@ public class movement : MonoBehaviour
         test = null;
         newrot = 0;
         jittercheck = true;
+        chargeactivate = 0;
     }
 
     public void OnCollisionStay(Collision collision)
     {
+
         if (Physics.Raycast(transform.position+ Vector3.down, Vector3.down, out downward, 0.7f))
         {
             if (collision.transform.tag != "ground")
@@ -96,13 +103,14 @@ public class movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        chargeactivate += Time.deltaTime;
         
         move =  transform.forward*Input.GetAxisRaw(buttons[0]);
 
         if (Input.GetAxisRaw(buttons[0]) < 0)
         {
-            phy.dynamicFriction = 5;
-            phy.staticFriction = 3;
+            phy.dynamicFriction = stoppingspeed;
+            phy.staticFriction = stoppingspeed-2;
         }
         else
         {
@@ -110,13 +118,13 @@ public class movement : MonoBehaviour
             phy.staticFriction = 1;
         }
 
-        if (Input.GetButton(buttons[2])&& charging==true)
+        if (Input.GetButton(buttons[2])&& charging==true && chargeactivate >= chargedelay)
         {
             charge += 100 * Time.deltaTime;
             jump = transform.forward * charge;
         }
 
-        if (Input.GetButtonUp(buttons[2]))
+        if (Input.GetButtonUp(buttons[2]) )
         {
             charging = true;
         }
@@ -141,7 +149,7 @@ public class movement : MonoBehaviour
         Vector3 veltrac = rb.velocity;
         if (grounded == true && rb.velocity.magnitude<50)
         {
-            rb.velocity = rb.velocity + move*20*Time.fixedDeltaTime;
+            rb.velocity = rb.velocity + move*speed*Time.fixedDeltaTime;
            
         }
 
@@ -149,12 +157,19 @@ public class movement : MonoBehaviour
         {
             rb.AddForce(move * 500*Time.fixedDeltaTime);
         }
+
+        else if(rb.velocity.magnitude == 0)
+        {
+            rb.AddForce(move * 300);
+        }
         if (Input.GetButtonUp(buttons[2]) && charging == true || charge >=200 && charging == true)
         {
+            chargeactivate = 0;
             rb.AddForce(jump*5);
             rb.velocity = veltrac*1.5f;
             charging = false;
             charge = 0;
+            
         }
         //rb.MoveRotation(Quaternion.LookRotation( Vector3.Cross(transform.forward,upright)*Time.fixedDeltaTime));
         if (jittercheck == true)
