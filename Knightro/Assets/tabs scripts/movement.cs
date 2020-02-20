@@ -18,6 +18,7 @@ public class movement : MonoBehaviour
     [SerializeField] int rotspeed;
     [SerializeField] PhysicMaterial phy;
     [SerializeField] int maxspeed;
+    public int maxcharge;
     [SerializeField] int speed;
     [SerializeField] int stoppingspeed;
     public float chargedelay;
@@ -141,7 +142,7 @@ public class movement : MonoBehaviour
             jump = transform.forward * charge;
         }
 
-        if (Input.GetButtonUp(buttons[2]))
+        if (Input.GetButtonDown(buttons[2]))
         {
             charging = true;
         }
@@ -179,7 +180,7 @@ public class movement : MonoBehaviour
         {
             rb.AddForce(move * 300);
         }
-        if (Input.GetButtonUp(buttons[2]) && charging == true || charge >= 200 && charging == true)
+        if (Input.GetButtonUp(buttons[2]) && charging == true || charge >= maxcharge && charging == true)
         {
             chargeactivate = 0;
             rb.AddForce(jump * 5);

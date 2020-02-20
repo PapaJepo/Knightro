@@ -42,7 +42,7 @@ public class rotation : MonoBehaviour
             Debug.Log("yes");
 
         }
-        if (Input.GetButtonUp(buttons[0]) || charge >= chargemax * 2)
+        if (Input.GetButtonUp(buttons[0]) || charge >= chargemax * 3)
         {
             chargeactivate = 0;
             chargeeffect = true;
