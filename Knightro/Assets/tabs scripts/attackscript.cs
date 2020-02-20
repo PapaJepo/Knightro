@@ -19,14 +19,14 @@ public class attackscript : MonoBehaviour
         {
             if (other.gameObject.CompareTag("player1"))
             {
-                opplayer.rb.AddForce(other.gameObject.transform.forward + other.gameObject.transform.right * 1000);
+                opplayer.rb.AddForce(other.gameObject.transform.forward + other.gameObject.transform.right * -1000);
             }
         }
         if (player2 == true)
         {
             if (other.gameObject.CompareTag("player2"))
             {
-                opplayer.rb.AddForce(other.gameObject.transform.forward + other.gameObject.transform.right * 1000);
+                opplayer.rb.AddForce(other.gameObject.transform.forward + other.gameObject.transform.right * -1000);
             }
         }
     }
