@@ -6240,6 +6240,7 @@ GameObject:
   - component: {fileID: 296758826}
   - component: {fileID: 296758821}
   - component: {fileID: 296758827}
+  - component: {fileID: 296758828}
   m_Layer: 0
   m_Name: player1
   m_TagString: player1
@@ -6275,6 +6276,7 @@ MonoBehaviour:
   - Fire1
   - Horizontal
   - Jump
+  clip: {fileID: 0}
   chargeactivate: 0
 --- !u!65 &296758822
 BoxCollider:
@@ -6386,6 +6388,104 @@ MonoBehaviour:
   player1: 0
   player2: 1
   anim: {fileID: 145894542}
+  clip1: {fileID: 8300000, guid: 7327a21b05c3cb8449d74e7fcd65f45b, type: 3}
+  clip2: {fileID: 8300000, guid: fc83aace8bdb7ad4b906d34cf738c59f, type: 3}
+--- !u!82 &296758828
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296758820}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 20
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &299635843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16229,6 +16329,7 @@ GameObject:
   - component: {fileID: 745181839}
   - component: {fileID: 745181838}
   - component: {fileID: 745181837}
+  - component: {fileID: 745181844}
   m_Layer: 0
   m_Name: player2
   m_TagString: player2
@@ -16253,6 +16354,8 @@ MonoBehaviour:
   player1: 1
   player2: 0
   anim: {fileID: 1333190634}
+  clip1: {fileID: 8300000, guid: 7327a21b05c3cb8449d74e7fcd65f45b, type: 3}
+  clip2: {fileID: 8300000, guid: fc83aace8bdb7ad4b906d34cf738c59f, type: 3}
 --- !u!114 &745181838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16281,6 +16384,7 @@ MonoBehaviour:
   - Fire2
   - Horizontal2
   - Jump2
+  clip: {fileID: 0}
   chargeactivate: 0
 --- !u!54 &745181839
 Rigidbody:
@@ -16375,6 +16479,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &745181844
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745181836}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 20
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &748380510 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: f437e8d163972fd4b8f4f06f6de00f60,
@@ -16985,6 +17185,8 @@ MonoBehaviour:
   - {fileID: 414971505}
   - {fileID: 848650014}
   - {fileID: 1454720836}
+  aud: {fileID: 296758828}
+  clip: {fileID: 8300000, guid: 6438311801c7b3d48a15126ee5ddfcf2, type: 3}
   LapCounter: 0
 --- !u!65 &765792052
 BoxCollider:
@@ -46323,6 +46525,8 @@ MonoBehaviour:
   - {fileID: 414971505}
   - {fileID: 848650014}
   - {fileID: 1454720836}
+  aud: {fileID: 745181844}
+  clip: {fileID: 8300000, guid: 6438311801c7b3d48a15126ee5ddfcf2, type: 3}
   LapCounter: 0
 --- !u!65 &2036231005
 BoxCollider:

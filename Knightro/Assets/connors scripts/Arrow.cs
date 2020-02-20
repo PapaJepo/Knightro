@@ -10,7 +10,8 @@ public class Arrow : MonoBehaviour
     public int CurrentWaypoint;
     //public GameObject CurrentObject;
     public List<Transform> Waypoints;
-
+   [SerializeField] AudioSource aud;
+   [SerializeField] AudioClip clip;
     public int LapCounter;
     // Start is called before the first frame update
     void Awake()
@@ -39,6 +40,11 @@ public class Arrow : MonoBehaviour
             if (CurrentWaypoint + 1 == Waypoints.Count)
             {
                 LapCounter++;
+                if (!aud.isPlaying)
+                {
+                    aud.clip = clip;
+                    aud.Play();
+                }
             }
         }
     }

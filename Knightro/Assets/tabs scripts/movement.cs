@@ -24,7 +24,8 @@ public class movement : MonoBehaviour
     public float chargedelay;
     [SerializeField] int pickupspeed, pickupslow;
     [SerializeField] string[] buttons = new string[1];
-    
+    AudioSource aud;
+   [SerializeField] AudioClip clip;
     public float chargeactivate;
     bool grounded;
     bool charging;
@@ -42,6 +43,7 @@ public class movement : MonoBehaviour
         newrot = 0;
         jittercheck = true;
         chargeactivate = 0;
+        aud = GetComponent<AudioSource>();
     }
 
     public void OnCollisionStay(Collision collision)
@@ -187,7 +189,11 @@ public class movement : MonoBehaviour
         }
         if (Input.GetButtonUp(buttons[2]) && charging == true || charge >= maxcharge && charging == true)
         {
-            
+            if (!aud.isPlaying)
+            {
+                aud.clip = clip;
+                aud.Play();
+            }
             charging = false;
             chargeactivate = 0;
             rb.AddForce(jump * 5);
