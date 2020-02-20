@@ -5866,7 +5866,7 @@ MonoBehaviour:
   - Fire1
   - Horizontal
   - Jump
-  chargeactivate: 170.38724
+  chargeactivate: 0
 --- !u!65 &296758822
 BoxCollider:
   m_ObjectHideFlags: 0
