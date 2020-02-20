@@ -12,7 +12,7 @@ public class movement : MonoBehaviour
     Vector3 upright;
     Vector3 up;
     Vector3 jump;
-    float charge;
+    public float charge;
     float newrot;
     [SerializeField] int angulardrag;
     [SerializeField] int rotspeed;
