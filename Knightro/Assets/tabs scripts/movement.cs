@@ -104,12 +104,14 @@ public class movement : MonoBehaviour
 
         if (collision.transform.CompareTag("pickupspeed"))
         {
+            collision.gameObject.GetComponent<pickupscript>().truth = true;
             charge = pickupspeed;
             charging = true;
         }
 
         if (collision.transform.CompareTag("pickupslow"))
         {
+            collision.gameObject.GetComponent<pickupscript>().truth = true;
             rb.velocity -= transform.forward*pickupslow;
         }
     }
