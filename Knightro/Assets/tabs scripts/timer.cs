@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class timer : MonoBehaviour
 {
-    Text text;
+    public TMP_Text text;
     float starttime;
     // Start is called before the first frame update
     void Start()
     {
         starttime = Time.time;
-        text = GetComponent<Text>();
+       
     }
 
     // Update is called once per frame
