@@ -11,31 +11,20 @@ public class rotation : MonoBehaviour
     Camera cam;
     [SerializeField] int chargemax;
     [SerializeField] string[] buttons = new string[1];
-    [SerializeField] int chargedelay;
-    [SerializeField] float chargeactivate;
-    movement mov;
     bool chargeeffect;
     float charge;
     public void Start()
     {
-        mov = player.GetComponent<movement>();
+        
         cam = GetComponent<Camera>();
     }
 
     public void Update()
     {
-        chargeactivate = mov.chargeactivate;
-        if (Input.GetButton(buttons[0]) && chargeeffect==false && chargeactivate >= chargedelay)
+        if (Input.GetButton(buttons[0]) && chargeeffect==false)
         {
             charge += chargemax * Time.deltaTime;
             Debug.Log("yes");
-            
-        }
-        if (Input.GetButtonUp(buttons[0]) || charge >= chargemax * 2)
-        {
-            chargeactivate = 0;
-            chargeeffect = true;
-
         }
 
     }
@@ -63,7 +52,10 @@ public class rotation : MonoBehaviour
             cam.fieldOfView = Mathf.LerpUnclamped(cam.fieldOfView, 60, 6 * Time.fixedDeltaTime);
         }
 
-       
+        if(Input.GetButtonUp(buttons[0]) || charge >=chargemax*2)
+        {
+            chargeeffect = true;
+        }
         
 
          //transform.RotateAround(player.transform.position,100*Time.deltaTime*Input.GetAxisRaw("Horizontal"));
