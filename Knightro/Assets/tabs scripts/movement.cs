@@ -128,7 +128,7 @@ public class movement : MonoBehaviour
         if (Input.GetAxisRaw(buttons[0]) < 0)
         {
             phy.dynamicFriction = stoppingspeed;
-            phy.staticFriction = stoppingspeed - 2;
+            phy.staticFriction = stoppingspeed -2;
         }
         else
         {

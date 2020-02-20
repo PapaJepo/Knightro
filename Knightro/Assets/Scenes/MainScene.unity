@@ -6287,8 +6287,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.4293307, y: 2.4859304, z: 1}
+  m_Center: {x: 0.035117302, y: 0.74296457, z: 0}
 --- !u!23 &296758823
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16228,6 +16228,7 @@ GameObject:
   - component: {fileID: 745181840}
   - component: {fileID: 745181839}
   - component: {fileID: 745181838}
+  - component: {fileID: 745181837}
   m_Layer: 0
   m_Name: player2
   m_TagString: player2
@@ -16235,6 +16236,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &745181837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745181836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e45012a13e8d85743bbce33a4fce5045, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axis: trigger2
+  opplayer: {fileID: 296758821}
+  player1: 1
+  player2: 0
+  anim: {fileID: 1333190634}
 --- !u!114 &745181838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16291,8 +16309,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.9109504, y: 2.578294, z: 1}
+  m_Center: {x: 0.0701569, y: 0.78914684, z: 0}
 --- !u!23 &745181841
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29265,6 +29283,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 613ebcaff6c85144d93607077a670430,
     type: 3}
   m_PrefabInstance: {fileID: 1332963008}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1333190634 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 702701313964409949, guid: 5fa85f4a97d74ac48afcec5051734b64,
+    type: 3}
+  m_PrefabInstance: {fileID: 1391783249}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1334650958 stripped
 GameObject:
