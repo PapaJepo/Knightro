@@ -5851,13 +5851,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 296758826}
+  charge: 0
   angulardrag: 2
   rotspeed: 82
   phy: {fileID: 13400000, guid: db9cdd30b3c1c9547822bc4ac70c989b, type: 2}
   maxspeed: 80
   speed: 39
   stoppingspeed: 10
-  chargedelay: 20
+  chargedelay: 2
   pickupspeed: 0
   pickupslow: 0
   buttons:
@@ -8655,6 +8656,7 @@ GameObject:
   - component: {fileID: 449119528}
   - component: {fileID: 449119530}
   - component: {fileID: 449119529}
+  - component: {fileID: 449119531}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -8718,6 +8720,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 449119527}
   m_CullTransparentMesh: 0
+--- !u!114 &449119531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449119527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce32095322a655944af9a5b2cce6fd4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 296758821}
+  Charge: {fileID: 1725587819}
 --- !u!1001 &453325102
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15126,6 +15142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  charge: 0
   angulardrag: 10
   rotspeed: 50
   phy: {fileID: 13400000, guid: db9cdd30b3c1c9547822bc4ac70c989b, type: 2}
@@ -37349,7 +37366,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0

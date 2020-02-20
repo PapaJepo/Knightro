@@ -20,7 +20,7 @@ public class movement : MonoBehaviour
     [SerializeField] int maxspeed;
     [SerializeField] int speed;
     [SerializeField] int stoppingspeed;
-    [SerializeField] int chargedelay;
+    public float chargedelay;
     [SerializeField] int pickupspeed, pickupslow;
     [SerializeField] string[] buttons = new string[1];
     
@@ -32,6 +32,7 @@ public class movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         rb = GetComponent<Rigidbody>();
         box = GetComponent<BoxCollider>();
         grounded = true;

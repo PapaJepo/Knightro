@@ -16,6 +16,13 @@ public class Fillcharge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(player.charge<200)
+        {
+            Charge.fillAmount = player.charge / 100;
+        }
+        else
+        {
+            Charge.fillAmount = 0;
+        }
     }
 }
