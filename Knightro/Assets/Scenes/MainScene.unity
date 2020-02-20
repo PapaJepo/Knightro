@@ -6315,6 +6315,7 @@ GameObject:
   - component: {fileID: 296758821}
   - component: {fileID: 296758827}
   - component: {fileID: 296758828}
+  - component: {fileID: 296758829}
   m_Layer: 0
   m_Name: player1
   m_TagString: player1
@@ -6344,8 +6345,8 @@ MonoBehaviour:
   speed: 39
   stoppingspeed: 10
   chargedelay: 3
-  pickupspeed: 0
-  pickupslow: 0
+  pickupspeed: 400
+  pickupslow: 5
   buttons:
   - Fire1
   - Horizontal
@@ -6560,6 +6561,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &296758829
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296758820}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0495063, y: 2.4617226, z: 0.7351442}
+  m_Center: {x: 0.02475297, y: 0.7308611, z: 0.7757429}
 --- !u!1001 &299635843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16302,17 +16316,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: bd594b895fb70cd428d4f225b46d515c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 366.97
+      value: 105.7
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: bd594b895fb70cd428d4f225b46d515c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.66
+      value: 2.7
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: bd594b895fb70cd428d4f225b46d515c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 297.78
+      value: 172.3
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: bd594b895fb70cd428d4f225b46d515c,
         type: 3}
@@ -16560,6 +16574,7 @@ GameObject:
   - component: {fileID: 745181838}
   - component: {fileID: 745181837}
   - component: {fileID: 745181844}
+  - component: {fileID: 745181845}
   m_Layer: 0
   m_Name: player2
   m_TagString: player2
@@ -16805,6 +16820,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &745181845
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745181836}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3001025, y: 2.4742348, z: 0.6182474}
+  m_Center: {x: 0.050394688, y: 0.73711723, z: 0.76580524}
 --- !u!4 &748380510 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: f437e8d163972fd4b8f4f06f6de00f60,
@@ -32178,22 +32206,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.31064, y: 4.3106413, z: 4.547684}
   m_Center: {x: 0.01783061, y: 0.03560794, z: 0.38720146}
---- !u!54 &1434296979
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1434296976}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!4 &1434487361 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 8cda6ac539b265e44a3ef728c1d77ab5,
@@ -38334,22 +38346,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   truth: 0
---- !u!54 &1645420587
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1645420584}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &1645420591
 BoxCollider:
   m_ObjectHideFlags: 0

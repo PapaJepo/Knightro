@@ -7,7 +7,7 @@ public class pickupscript : MonoBehaviour
    public bool truth;
     MeshRenderer mesh;
     Collider col;
-    Rigidbody rb;
+
     float timer;
     // Start is called before the first frame update
     void Start()
@@ -15,7 +15,7 @@ public class pickupscript : MonoBehaviour
         truth = false;
         mesh = GetComponent<MeshRenderer>();
         col = GetComponent<Collider>();
-        rb = GetComponent<Rigidbody>();
+       
         timer = 0;
 
     }
@@ -25,16 +25,16 @@ public class pickupscript : MonoBehaviour
     {
         if(truth == true)
         {
-            mesh.enabled = false;
             col.enabled = false;
-            rb.isKinematic = true;
+            mesh.enabled = false;
+           
             timer += Time.deltaTime;
         }
         else if(truth == false)
         {
             mesh.enabled = true;
             col.enabled = true;
-            rb.isKinematic = false;
+          
         }
 
         if(timer >= 5)

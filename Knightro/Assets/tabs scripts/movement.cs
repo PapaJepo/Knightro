@@ -89,6 +89,23 @@ public class movement : MonoBehaviour
         grounded = false;
     }
 
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.CompareTag("pickupspeed"))
+        {
+            //collision.gameObject.GetComponent<pickupscript>().truth = true;
+            other.gameObject.SetActive(false);
+            charge = pickupspeed;
+            charging = true;
+        }
+
+        if (other.transform.CompareTag("pickupslow"))
+        {
+            other.gameObject.GetComponent<pickupscript>().truth = true;
+            rb.velocity -= transform.forward * pickupslow;
+        }
+    }
+
     public void OnCollisionEnter(Collision collision)
     {
 
@@ -105,19 +122,7 @@ public class movement : MonoBehaviour
             }
 
         }
-
-        if (collision.transform.CompareTag("pickupspeed"))
-        {
-            collision.gameObject.GetComponent<pickupscript>().truth = true;
-            charge = pickupspeed;
-            charging = true;
-        }
-
-        if (collision.transform.CompareTag("pickupslow"))
-        {
-            collision.gameObject.GetComponent<pickupscript>().truth = true;
-            rb.velocity -= transform.forward*pickupslow;
-        }
+        
     }
 
     // Update is called once per frame
