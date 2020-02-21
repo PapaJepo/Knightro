@@ -25,7 +25,8 @@ public class movement : MonoBehaviour
     [SerializeField] int pickupspeed, pickupslow;
     [SerializeField] string[] buttons = new string[1];
     AudioSource aud;
-   [SerializeField] AudioClip clip;
+   [SerializeField] AudioClip clip1;
+    [SerializeField] AudioClip clip2;
     public float chargeactivate;
     bool grounded;
     bool charging;
@@ -97,12 +98,23 @@ public class movement : MonoBehaviour
             other.gameObject.SetActive(false);
             charge = pickupspeed;
             charging = true;
+
+            if (!aud.isPlaying)
+            {
+                aud.clip = clip1;
+                aud.Play();
+            }
         }
 
         if (other.transform.CompareTag("pickupslow"))
         {
             other.gameObject.GetComponent<pickupscript>().truth = true;
             rb.velocity -= transform.forward * pickupslow;
+            if (!aud.isPlaying)
+            {
+                aud.clip = clip2;
+                aud.Play();
+            }
         }
     }
 
@@ -196,7 +208,7 @@ public class movement : MonoBehaviour
         {
             if (!aud.isPlaying)
             {
-                aud.clip = clip;
+                aud.clip = clip1;
                 aud.Play();
             }
             charging = false;
