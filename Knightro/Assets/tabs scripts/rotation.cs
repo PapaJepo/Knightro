@@ -17,6 +17,7 @@ public class rotation : MonoBehaviour
     movement mov;
     bool chargeeffect;
     float charge;
+
     public void Start()
     {
         mov = player.GetComponent<movement>();
@@ -73,11 +74,5 @@ public class rotation : MonoBehaviour
         {
             cam.fieldOfView = Mathf.LerpUnclamped(cam.fieldOfView, 60, 6 * Time.fixedDeltaTime);
         }
-
-
-
-
-        //transform.RotateAround(player.transform.position,100*Time.deltaTime*Input.GetAxisRaw("Horizontal"));
-        //transform.RotateAround(player.transform.position, Vector3.up, Input.GetAxisRaw("Horizontal") * 100 * Time.deltaTime);
     }
 }

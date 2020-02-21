@@ -29,7 +29,7 @@ public class movement : MonoBehaviour
     [SerializeField] AudioClip clip2;
     public float chargeactivate;
     bool grounded;
-    bool charging;
+   [SerializeField] bool charging;
     bool jittercheck;
     GameObject test;
     // Start is called before the first frame update
@@ -39,7 +39,6 @@ public class movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         box = GetComponent<BoxCollider>();
         grounded = true;
-        charging = true;
         test = null;
         newrot = 0;
         jittercheck = true;
@@ -166,10 +165,7 @@ public class movement : MonoBehaviour
             charging = true;
         }
 
-        if (Input.GetButtonUp(buttons[2]))
-        {
-            chargeactivate = 0;
-        }
+       
 
         //upright = Vector3.Cross(transform.position + Vector3.forward, downward.point);
 
@@ -179,12 +175,7 @@ public class movement : MonoBehaviour
 
     }
 
-    public void OnDrawGizmos()
-    {
-        Gizmos.DrawLine(transform.position, transform.position + Vector3.down);
-        Gizmos.color = Color.yellow;
-
-    }
+   
 
     public void FixedUpdate()
     {
@@ -204,7 +195,7 @@ public class movement : MonoBehaviour
         {
             rb.AddForce(move * 300);
         }
-        if (Input.GetButtonUp(buttons[2]) && charging == true || charge >= maxcharge && charging == true)
+        if (Input.GetButtonUp(buttons[2]) && charging == true && chargedelay<=chargeactivate || charge >=maxcharge && charging == true &&  chargedelay <= chargeactivate)
         {
             if (!aud.isPlaying)
             {
